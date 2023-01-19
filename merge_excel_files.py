@@ -12,4 +12,6 @@ if __name__ == "__main__":
         df.columns = [ f"{c} ({os.path.basename(f)})" for c in df.columns.values]
         final_df = pd.concat([final_df, df.iloc[:, 0]], axis=1)
 
+    if not os.path.exists('output'):
+        os.makedirs('output')
     final_df.to_excel("output/output.xlsx")
